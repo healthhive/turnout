@@ -1,4 +1,4 @@
-Turnout [![Tests](https://github.com/healthhive/turnout/actions/workflows/test.yml/badge.svg?branch=rack-3)](https://github.com/healthhive/turnout/actions/workflows/test.yml)
+Turnout [![Tests](https://github.com/healthhive/turnout/actions/workflows/test.yml/badge.svg)](https://github.com/healthhive/turnout/actions/workflows/test.yml)
 =======
 Turnout is [Rack](https://github.com/rack/rack) middleware with a [Ruby on Rails](http://rubyonrails.org) engine that allows you to easily put your app in maintenance mode.
 
@@ -6,8 +6,6 @@ About this fork
 ===============
 > [!NOTE]
 > The original library, [biola/turnout](https://github.com/biola/turnout), has been unmaintained since 2019 (last release `v2.5.0`, no commits or PR activity since). We forked it to keep it updated — Rack 3 and modern Ruby compatibility — for use in the HealthHive API.
-
-The `rack-3` branch is the canonical branch consumed by our apps.
 
 Changes over upstream `v2.5.0`:
 
@@ -20,7 +18,7 @@ Changes over upstream `v2.5.0`:
 Consume via Gemfile:
 
 ```ruby
-gem 'turnout', github: 'healthhive/turnout', branch: 'rack-3'
+gem 'turnout', github: 'healthhive/turnout'
 ```
 
 Features
