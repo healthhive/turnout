@@ -35,10 +35,11 @@ module Turnout
         MaintenancePage.all << subclass
       end
 
+      # Rack 3 SPEC requires lowercase header names
       def headers(retry_after = nil)
-        headers = {'Content-Type' => media_types.first, 'Content-Length' => length}
+        headers = {'content-type' => media_types.first, 'content-length' => length}
         # Include the Retry-After header unless it wasn't specified
-        headers['Retry-After'] = retry_after.to_s unless retry_after.nil?
+        headers['retry-after'] = retry_after.to_s unless retry_after.nil?
         headers
       end
 
