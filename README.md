@@ -1,6 +1,25 @@
-Turnout [![Build Status](https://travis-ci.org/biola/turnout.svg?branch=master)](https://travis-ci.org/biola/turnout) [![Code Climate](https://codeclimate.com/github/biola/turnout.svg)](https://codeclimate.com/github/biola/turnout) [![Gem Version](https://badge.fury.io/rb/turnout.svg)](https://badge.fury.io/rb/turnout)
+Turnout [![Tests](https://github.com/healthhive/turnout/actions/workflows/test.yml/badge.svg)](https://github.com/healthhive/turnout/actions/workflows/test.yml)
 =======
-Turnout is [Rack](http://rack.rubyforge.org/) middleware with a [Ruby on Rails](http://rubyonrails.org) engine that allows you to easily put your app in maintenance mode.
+Turnout is [Rack](https://github.com/rack/rack) middleware with a [Ruby on Rails](http://rubyonrails.org) engine that allows you to easily put your app in maintenance mode.
+
+About this fork
+===============
+> [!NOTE]
+> The original library, [biola/turnout](https://github.com/biola/turnout), has been unmaintained since 2019 (last release `v2.5.0`, no commits or PR activity since). We forked it to keep it updated — Rack 3 and modern Ruby compatibility — for use in the HealthHive API.
+
+Changes over upstream `v2.5.0`:
+
+* **Rack 3 support** — gemspec constraint loosened from `rack >= 1.3, < 3` to `rack >= 1.3, < 4`. Required because Sidekiq 8 pulls `rack >= 3.2`. The runtime code was already Rack 3 compatible.
+* **Rack 3 SPEC compliance** — response header names lowercased (`Content-Type` → `content-type`, `Content-Length` → `content-length`, `Retry-After` → `retry-after`). HTTP headers are case-insensitive, but the Rack 3 SPEC (enforced by `Rack::Lint`) requires lowercase.
+* **`rack-test` dev dependency bumped** `~> 0.6` → `~> 2.1` — 0.6 predates Rack 3 and breaks on it.
+* **CI migrated** from Travis to GitHub Actions (`.github/workflows/test.yml`, Ruby 3.2 + 3.4 matrix).
+* **`.ruby-version` bumped** 2.3.4 → 3.4.9 (2.3 is EOL).
+
+Consume via Gemfile:
+
+```ruby
+gem 'turnout', github: 'healthhive/turnout'
+```
 
 Features
 ========
