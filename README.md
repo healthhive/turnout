@@ -4,7 +4,10 @@ Turnout is [Rack](https://github.com/rack/rack) middleware with a [Ruby on Rails
 
 About this fork
 ===============
-This is the HealthHive fork of [biola/turnout](https://github.com/biola/turnout), which has been unmaintained since 2019. The `rack-3` branch is the canonical branch consumed by our apps.
+> [!NOTE]
+> The original library, [biola/turnout](https://github.com/biola/turnout), has been unmaintained since 2019 (last release `v2.5.0`, no commits or PR activity since). We forked it to keep it updated — Rack 3 and modern Ruby compatibility — for use in the HealthHive API.
+
+The `rack-3` branch is the canonical branch consumed by our apps.
 
 Changes over upstream `v2.5.0`:
 
